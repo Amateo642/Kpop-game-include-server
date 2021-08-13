@@ -1,0 +1,8 @@
+@mixin text-background {
+    padding: 10px;
+    font-family: 'Caveat', cursive;
+    font-weight: 400;
+    color: #ffffff;
+    background:rgba(103, 90, 160, 0.6);
+    border-radius: 5px;
+}

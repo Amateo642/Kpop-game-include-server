@@ -1,0 +1,299 @@
+@import "normalize.css";
+@import "animate.css";
+@import "mixins";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* header container */
+
+.header {
+  height: 230px;
+  background: url("../assets/footer.jpg") center/ cover;
+}
+
+#nav {
+  height: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
+  width: 40%;
+}
+
+.navbar-item-link {
+  @include text-background;
+  display: block;
+  margin: 5px;
+  width: 150px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.dropdown {
+  position: relative;
+
+  .dropdown-btn {
+    cursor: pointer;
+  } 
+
+  .dropdown-content {
+    position: absolute;
+    display: none;
+    max-height: 400px;
+    z-index: 1;
+    overflow-y: scroll;
+  }
+
+  &.show .dropdown-content {
+    display: block;
+  }
+}
+
+.dropdown-content-item {
+  display: block;
+  
+}
+
+/* main container */
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100% - 230px);
+  background: url("../assets/main-1.jpg") no-repeat bottom center / cover;
+}
+
+.main.gradient {
+  background: linear-gradient(to right, #e3effb, #66599f);
+}
+
+#app {
+  text-align: center;
+  width: clamp(600px, 80%, 1200px);
+}
+
+.main p {
+  @include text-background;
+  font-size: 30px;
+}
+
+.main button {
+  @include text-background;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
+
+.main .link {
+  @include text-background;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+/*.girl-info-block {
+
+}*/
+
+.girl-info-image {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+// game screen
+
+.image-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  flex: 1 0 auto;
+  min-height: 400px;
+  width: 40%;
+}
+
+.card-info {
+  height: 200px;
+}
+
+.card-info p {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.image-vs {
+  height: 200px;
+}
+
+.image-card {
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 5px;
+  object-position: center top;
+}
+
+// winner screen
+
+.image-winner {
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  text-align: center;
+  object-fit: cover;
+}
+
+// leaders screen
+
+.leaders-block {
+  display: flex;
+  justify-content: space-between;
+  width: 642px;
+}
+
+.leader-block {
+  width: 200px;
+}
+
+.image-leader {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+// Gallery screen
+
+.gallery > div {
+  margin: 0 auto;
+}
+
+.photo-gallery-nav {
+  width: clamp(300px, 80%, 800px);
+}
+
+/*.group-members {
+  display: flex;
+}
+
+.group-image {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.members-block {
+  flex-direction: row;
+  width: 200px;
+  margin: 5px;
+}
+
+.members-image {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+} */
+
+.group-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.girl-link {
+  text-decoration: none;
+}
+
+.girls-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.photo-gallery .group-image {
+  margin: 0 auto;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.photo-gallery-nav .group-image {
+  margin: 10px;
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 992px) {
+  
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .navbar-item-link {
+    height: 35px;
+  }
+
+  .main {
+    background: linear-gradient(to right, #e3effb, #66599f);
+  }
+  .leaders-block {
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .navbar-item-link {
+    height: 35px;
+  }
+
+  #app {
+    width: 100%;
+  }
+
+  .leaders-block {
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}

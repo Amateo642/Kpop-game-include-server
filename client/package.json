@@ -1,0 +1,36 @@
+{
+  "name": "k-pop.choice",
+  "version": "1.0.0-beta.1",
+  "description": "Vote",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve --open --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amateo642/K-pop.choice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amateo642/K-pop.choice/issues"
+  },
+  "homepage": "https://github.com/Amateo642/K-pop.choice#readme",
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^8.1.1",
+    "css-loader": "^5.2.1",
+    "file-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^1.4.1",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^11.0.1",
+    "webpack": "^5.33.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
