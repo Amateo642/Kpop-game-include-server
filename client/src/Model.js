@@ -5,19 +5,19 @@ export class Model {
     }
 
     async getGirls() {
-        return fetch('http://localhost:5000/api/girls').then(data => data.json());
+        return fetch('/api/girls').then(data => data.json());
     }
 
     async getGroups() {
-        return fetch('http://localhost:5000/api/groups').then(data => data.json());
+        return fetch('/api/groups').then(data => data.json());
     }
 
     async getGirlById(id) {
-        return fetch(`http://localhost:5000/api/girls/${id}`).then(data => data.json());
+        return fetch(`/api/girls/${id}`).then(data => data.json());
     }
 
     async getGroupById(id) {
-        return fetch(`http://localhost:5000/api/groups/${id}`).then(data => data.json());
+        return fetch(`/api/groups/${id}`).then(data => data.json());
     }
 
     async getGirlsByGroupId(id) {
@@ -36,7 +36,7 @@ export class Model {
         if (winner) {
             this.winners.push(winner);
             this.girls.splice(0,2);
-            await fetch('http://localhost:5000/api/girls', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: winner.id }) });
+            await fetch('/api/girls', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: winner.id }) });
         }
     }
 
