@@ -1,3 +1,7 @@
+import { isDev } from './config';
+
+const apiUrl = isDev ? 'http://localhost:5000/api' : '/api';
+
 export class Model {
     async prepareGame() {
         this.girls = await this.getGirls();
@@ -5,19 +9,19 @@ export class Model {
     }
 
     async getGirls() {
-        return fetch('/api/girls').then(data => data.json());
+        return fetch(apiUrl + '/girls').then(data => data.json());
     }
 
     async getGroups() {
-        return fetch('/api/groups').then(data => data.json());
+        return fetch(apiUrl + '/groups').then(data => data.json());
     }
 
     async getGirlById(id) {
-        return fetch(`/api/girls/${id}`).then(data => data.json());
+        return fetch(apiUrl + `/girls/${id}`).then(data => data.json());
     }
 
     async getGroupById(id) {
-        return fetch(`/api/groups/${id}`).then(data => data.json());
+        return fetch(apiUrl + `/groups/${id}`).then(data => data.json());
     }
 
     async getGirlsByGroupId(id) {
@@ -36,7 +40,7 @@ export class Model {
         if (winner) {
             this.winners.push(winner);
             this.girls.splice(0,2);
-            await fetch('/api/girls', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: winner.id }) });
+            await fetch(apiUrl + '/girls', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: winner.id }) });
         }
     }
 
