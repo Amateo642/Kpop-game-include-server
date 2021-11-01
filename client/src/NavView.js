@@ -4,6 +4,22 @@ export class NavView {
     }
 
     renderNavbar(groups, girls) {
+        const burger = document.createElement('div');
+        const span1 = document.createElement('span');
+        const span2 = document.createElement('span');
+        const span3 = document.createElement('span');
+        burger.classList.add('burger-menu');
+
+        burger.appendChild(span1);
+        burger.appendChild(span2);
+        burger.appendChild(span3);
+
+        burger.addEventListener('click', () => {
+            this.navEl.parentElement.classList.toggle('active');
+        });
+
+        this.navEl.appendChild(burger);
+
         const navbar = document.createElement('div');
         navbar.className = 'navbar';
 
