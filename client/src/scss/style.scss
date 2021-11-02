@@ -183,6 +183,7 @@ body {
 .image-wrapper {
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .card {
@@ -384,6 +385,10 @@ body {
 
   #app {
     width: 100%;
+  }
+
+  .main {
+    min-height: 100%;
   }
 
   .image-wrapper {
