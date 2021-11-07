@@ -179,11 +179,25 @@ body {
 }
 
 // game screen
-
 .image-wrapper {
   display: flex;
   align-items: center;
   overflow: hidden;
+}
+
+.stages-wrapper {
+  @include text-background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stages {
+  margin: 5px;
+}
+
+.span-stages {
+  font-size: 30px;
 }
 
 .card {
@@ -202,7 +216,9 @@ body {
 }
 
 .image-vs {
-  height: 200px;
+  width: 10%;
+  min-width: 100px;
+  max-width: 200px;
 }
 
 .image-card {
@@ -216,6 +232,19 @@ body {
 
 // winner screen
 
+.winner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.winner .card-info {
+  height: auto;
+  min-width: 60%;
+}
+
 .image-winner {
   height: 400px;
   width: 400px;
@@ -228,8 +257,9 @@ body {
 
 .leaders-block {
   display: flex;
-  justify-content: space-between;
-  width: 642px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .leader-block {
@@ -348,10 +378,6 @@ body {
     justify-content: center;
     align-items: center;
   }
-
-  .image-vs {
-    height: 100px;
-  }
 }
 
 @media (max-width: 576px) {
@@ -368,6 +394,8 @@ body {
   }
 
   .navbar {
+    position: relative;
+    z-index: 1;
     flex-direction: column;
     justify-content: flex-end;
     transform-origin: 0% 0%;
@@ -381,6 +409,7 @@ body {
 
   .navbar-item-link {
     height: 35px;
+    padding: 6px;
   }
 
   #app {
@@ -426,6 +455,7 @@ body {
 
   .navbar-item-link {
     height: 28px;
+    padding: 2px;
   }
 
   #app {

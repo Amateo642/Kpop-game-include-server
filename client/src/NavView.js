@@ -61,7 +61,6 @@ export class NavView {
             if (isClickedOutside) {
                 dropdown.classList.remove('show');
                 document.removeEventListener('click', outside);
-                console.log('Clicked outside');
             }
         }
 

@@ -46,13 +46,17 @@ export class AppController {
 
     async startGame() {
         if (this.model.isNextPairExist()) {
-            this.view.renderGame(this.model.getPair());
-        } else if (this.model.isNextRoundReady()) {
-            this.model.startNextRound();
-            this.view.renderGame(this.model.getPair());
+            this.renderGame();
+        } else if (this.model.isNextStageReady()) {
+            this.model.startNextStage();
+            this.renderGame();
         } else {
             this.view.renderWinner(this.model.getWinner());
         }
+    }
+
+    renderGame() {
+        this.view.renderGame(this.model.getPair(), this.model.currentStage, this.model.currentRound, this.model.roundsOfStage);
     }
 
     async prepareAndStartGame() {

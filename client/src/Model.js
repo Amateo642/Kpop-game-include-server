@@ -6,10 +6,13 @@ export class Model {
     async prepareGame() {
         this.girls = await this.getGirls();
         this.winners = [];
+        this.currentStage = 1;
+        this.currentRound = 0;
+        this.roundsOfStage = Math.floor(this.girls.length / 2);
     }
 
     async getGirls() {
-        return fetch(apiUrl + '/girls').then(data => data.json());
+        return fetch(apiUrl + '/girls').then(data => data.json()); //.then(data => data.slice(0, 3))
     }
 
     async getGroups() {
@@ -33,6 +36,7 @@ export class Model {
     }
 
     getPair() {
+        this.currentRound++;    
         return this.isNextPairExist() ? [this.girls[0], this.girls[1]] : undefined;
     }
 
@@ -52,16 +56,19 @@ export class Model {
         return this.girls.length > 1;
     }
 
-    isNextRoundReady() {
+    isNextStageReady() {
         return this.winners.length > 1 || this.girls.length > 0;
     }
 
-    startNextRound() {
+    startNextStage() {
         if (this.girls.length === 1) {
             this.winners.unshift(this.girls[0]);
         }
         this.girls = this.winners;
         this.winners = [];
+        this.currentStage++;
+        this.currentRound = 0;
+        this.roundsOfStage = Math.floor(this.girls.length / 2);
     }
 
     async getLeaders() {
@@ -70,6 +77,6 @@ export class Model {
             if (girl1.voices > girl2.voices) return -1;
             if (girl1.voices === girl2.voices) return 0;
             if (girl1.voices < girl2.voices) return 1;
-        }).slice(0, 3);
+        }).slice(0, 30);
     }
 }
