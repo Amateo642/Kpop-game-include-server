@@ -391,11 +391,15 @@ body {
 
   .burger-menu {
     display: block;
+    position: relative;
+    z-index: 1;
   }
 
   .navbar {
     position: relative;
     z-index: 1;
+    height: 85%;
+    width: 42%;
     flex-direction: column;
     justify-content: flex-end;
     transform-origin: 0% 0%;
